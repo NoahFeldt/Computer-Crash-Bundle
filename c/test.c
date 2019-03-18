@@ -3,11 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-void print_once()
-{
-   puts("lol");
-}
-
 void Check(char buffer[500])
 {  
    if(!strcmp(buffer, "help"))
