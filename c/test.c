@@ -11,7 +11,8 @@ void Check(char buffer[500])
       printf("exit & quit     - exits\n");
       printf("clear & cls     - clears console\n");
       printf("pingspoof       - ping someone a lot of times\n");
-      printf("pingstop        - stops all active pingspoofers\n\n");
+      printf("pingstop        - stops all active pingspoofers\n");
+      printf("link        - opens link in your deafault browser\n\n");
    }
    else if (!strcmp(buffer, "exit") || !strcmp(buffer, "quit")) 
    {
@@ -33,7 +34,7 @@ void Check(char buffer[500])
       printf("How many pingspoofers do you want? : ");
       scanf("%d", &amount); 
 
-      char cmd[50] = "start /min ping ";
+      char cmd[500] = "start /min ping ";
       strcat(cmd, ip);
       strcat(cmd, " -w 1 -l 65500 -t");
 
@@ -50,6 +51,27 @@ void Check(char buffer[500])
       system("tasklist|find /i /c \"ping.exe\"");
       printf("\n");
       system("start /min taskkill /IM PING.exe /F");
+   }
+   else if(!strcmp(buffer, "link"))
+   {
+      char link[500];
+
+      printf("What is the link you want to visit? : ");
+      scanf("%s", &link); 
+
+      int amount;
+
+      printf("How many visits do you want? : ");
+      scanf("%d", &amount); 
+
+      char cmd[500] = "start ";
+      strcat(cmd, link);
+
+      for(int i = 0; i < amount; i++)
+      {
+         system(cmd);
+      }
+      
    }
    else
    {
